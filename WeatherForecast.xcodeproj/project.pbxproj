@@ -12,7 +12,6 @@
 		68BE29721BCFAEDF00C280EF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29701BCFAEDF00C280EF /* FirstViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68BE29731BCFAEDF00C280EF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29711BCFAEDF00C280EF /* SecondViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68BE29781BCFAEFC00C280EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29741BCFAEFC00C280EF /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		68BE297A1BCFAEFC00C280EF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29761BCFAEFC00C280EF /* Info.plist */; settings = {ASSET_TAGS = (); }; };
 		68BE29821BCFAF1900C280EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29811BCFAF1900C280EF /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		68BE29881BCFB1CD00C280EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29841BCFB1CD00C280EF /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		68BE29891BCFB1CD00C280EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29861BCFB1CD00C280EF /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -285,7 +284,6 @@
 			files = (
 				68BE29881BCFB1CD00C280EF /* LaunchScreen.storyboard in Resources */,
 				68BE29781BCFAEFC00C280EF /* Assets.xcassets in Resources */,
-				68BE297A1BCFAEFC00C280EF /* Info.plist in Resources */,
 				68BE29891BCFB1CD00C280EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
