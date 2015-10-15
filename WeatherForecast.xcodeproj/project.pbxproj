@@ -51,7 +51,6 @@
 		68BE29711BCFAEDF00C280EF /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = Classes/Controller/SecondViewController.swift; sourceTree = "<group>"; };
 		68BE29741BCFAEFC00C280EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		68BE29761BCFAEFC00C280EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		68BE29771BCFAEFC00C280EF /* WeatherForecast-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WeatherForecast-Bridging-Header.h"; path = "Resources/WeatherForecast-Bridging-Header.h"; sourceTree = "<group>"; };
 		68BE29851BCFB1CD00C280EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Storyboards/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68BE29871BCFB1CD00C280EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68BE29911BD0376B00C280EF /* Fonts_Colours.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Fonts_Colours.rtf; sourceTree = "<group>"; };
@@ -149,10 +148,9 @@
 			isa = PBXGroup;
 			children = (
 				68BE29831BCFB19F00C280EF /* Storyboards */,
-				68BE29741BCFAEFC00C280EF /* Assets.xcassets */,
 				68BE29901BD0376B00C280EF /* Fonts */,
+				68BE29741BCFAEFC00C280EF /* Assets.xcassets */,
 				68BE29761BCFAEFC00C280EF /* Info.plist */,
-				68BE29771BCFAEFC00C280EF /* WeatherForecast-Bridging-Header.h */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -487,7 +485,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.plamenandreev.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Resources/WeatherForecast-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -501,7 +498,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.plamenandreev.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Resources/WeatherForecast-Bridging-Header.h";
 			};
 			name = Release;
 		};
