@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  TodayViewController.swift
 //  WeatherForecast
 //
 //  Created by Plamen Andreev on 10/15/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TodayViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()

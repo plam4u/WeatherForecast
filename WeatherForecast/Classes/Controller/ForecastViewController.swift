@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ForecastViewController.swift
 //  WeatherForecast
 //
 //  Created by Plamen Andreev on 10/15/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class ForecastViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
