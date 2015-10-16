@@ -2,13 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="ProximaNova-Light.otf">
+            <string>ProximaNova-Light</string>
+        </mutableArray>
         <mutableArray key="ProximaNova-Regular.otf">
+            <string>ProximaNova-Regular</string>
             <string>ProximaNova-Regular</string>
         </mutableArray>
         <mutableArray key="ProximaNova-Semibold.otf">
+            <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
             <string>ProximaNova-Semibold</string>
@@ -22,7 +28,7 @@
         <!--Today-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="TodayViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -347,7 +353,7 @@
         <!--Forecast-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="ForecastViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -360,16 +366,91 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="2"/>
                                 <animations/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6vZ-5k-Qpp">
+                                <rect key="frame" x="0.0" y="66" width="600" height="485"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="ol7-u3-Us6">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ol7-u3-Us6" id="cwL-EX-G4n">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun_Mid" translatesAutoresizingMaskIntoConstraints="NO" id="LvQ-eK-qKL">
+                                                    <rect key="frame" x="17" y="22" width="55" height="55"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="55" id="EPf-y3-OfN"/>
+                                                        <constraint firstAttribute="width" constant="55" id="Sho-al-zDg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Y-ZF-BhM">
+                                                    <rect key="frame" x="96" y="30" width="65" height="18"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttM-XF-kR1">
+                                                    <rect key="frame" x="96" y="53" width="41" height="15"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
+                                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTC-Hc-sLZ">
+                                                    <rect key="frame" x="496" y="22" width="80" height="55"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="55"/>
+                                                    <color key="textColor" red="0.18431372549019609" green="0.56862745098039214" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-6C-fzh">
+                                                    <rect key="frame" x="96" y="99" width="504" height="1"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="IGH-T7-bWS"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gqW-6C-fzh" secondAttribute="trailing" id="EBn-bC-QTn"/>
+                                                <constraint firstItem="LvQ-eK-qKL" firstAttribute="leading" secondItem="cwL-EX-G4n" secondAttribute="leadingMargin" constant="9" id="Hru-Lh-hbP"/>
+                                                <constraint firstItem="M5Y-ZF-BhM" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" constant="-11" id="Ryb-g3-Cpe"/>
+                                                <constraint firstItem="ttM-XF-kR1" firstAttribute="leading" secondItem="M5Y-ZF-BhM" secondAttribute="leading" id="TwN-PH-Uwp"/>
+                                                <constraint firstAttribute="bottom" secondItem="gqW-6C-fzh" secondAttribute="bottom" id="Wke-IX-6P9"/>
+                                                <constraint firstItem="gqW-6C-fzh" firstAttribute="leading" secondItem="M5Y-ZF-BhM" secondAttribute="leading" id="doO-Ge-UxA"/>
+                                                <constraint firstItem="M5Y-ZF-BhM" firstAttribute="leading" secondItem="LvQ-eK-qKL" secondAttribute="trailing" constant="24" id="lcX-cd-Nh8"/>
+                                                <constraint firstItem="rTC-Hc-sLZ" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" id="rLa-oJ-izX"/>
+                                                <constraint firstItem="LvQ-eK-qKL" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" id="uG2-FL-Gm0"/>
+                                                <constraint firstItem="ttM-XF-kR1" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" constant="11" id="v96-8m-o44"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rTC-Hc-sLZ" secondAttribute="trailing" constant="16" id="yht-5z-Gdr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="6vZ-5k-Qpp" secondAttribute="bottom" id="17n-UL-UEz"/>
                             <constraint firstItem="Dar-Vi-TCf" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="3eH-cl-8qQ"/>
                             <constraint firstAttribute="trailing" secondItem="Dar-Vi-TCf" secondAttribute="trailing" id="8vM-Fa-frz"/>
+                            <constraint firstItem="6vZ-5k-Qpp" firstAttribute="top" secondItem="Dar-Vi-TCf" secondAttribute="bottom" id="TVR-Z1-Ipg"/>
                             <constraint firstItem="Dar-Vi-TCf" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="VRr-bT-EBR"/>
+                            <constraint firstItem="6vZ-5k-Qpp" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="cKD-33-N9i"/>
+                            <constraint firstAttribute="trailing" secondItem="6vZ-5k-Qpp" secondAttribute="trailing" id="oNx-Nd-SHV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Forecast" id="Tdd-Cc-PyJ"/>
+                    <connections>
+                        <outlet property="tableView" destination="6vZ-5k-Qpp" id="cOC-c8-gzS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -449,6 +530,7 @@
         <image name="Rain" width="16" height="19"/>
         <image name="Sun" width="24" height="24"/>
         <image name="Sun_Big" width="87" height="87"/>
+        <image name="Sun_Mid" width="50" height="50"/>
         <image name="Today" width="24" height="24"/>
         <image name="Wind" width="25" height="16"/>
     </resources>

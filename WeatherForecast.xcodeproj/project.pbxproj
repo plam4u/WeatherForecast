@@ -135,8 +135,8 @@
 		68BE296A1BCFAE1200C280EF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				68BE299F1BD03A4400C280EF /* Forecast */,
 				68BE299E1BD03A4000C280EF /* Today */,
+				68BE299F1BD03A4400C280EF /* Forecast */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
