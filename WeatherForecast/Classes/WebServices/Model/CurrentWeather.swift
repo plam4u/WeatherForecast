@@ -11,12 +11,13 @@ import Foundation
 struct CurrentWeather
 {
 	let title:String
-	let cityName:String
+	let city:String
+	let country:String
 	let temperature:Int
 	let humidity:Int
 	let rainVolume:Int
 	let pressure:Int
 	let windSpeed:Int
-	let windDirectionDeg:Int
+    let windDirection:String
 	let icon:String
 }

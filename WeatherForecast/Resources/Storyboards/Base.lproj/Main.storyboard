@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -345,6 +346,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Today" id="xK5-1F-afa"/>
+                    <connections>
+                        <outlet property="humidityLabel" destination="dI2-at-TDS" id="wek-gK-utS"/>
+                        <outlet property="locationLabel" destination="V9j-T8-MaU" id="xqG-P7-e4i"/>
+                        <outlet property="pressureLabel" destination="Sor-qE-Upf" id="6oR-33-aj1"/>
+                        <outlet property="shareButton" destination="4AS-bv-evh" id="hRb-dY-rT7"/>
+                        <outlet property="temperatureLabel" destination="f82-2v-eyA" id="o9m-sE-RQv"/>
+                        <outlet property="volumeLabel" destination="aIw-57-Fbh" id="uvg-ne-Tfd"/>
+                        <outlet property="weatherImageView" destination="QTe-fw-Bts" id="rsL-9f-Vxm"/>
+                        <outlet property="windDirectionLabel" destination="FJf-bH-8WP" id="3TZ-ge-q0H"/>
+                        <outlet property="windSpeedLabel" destination="XXa-Il-UoL" id="qT6-Sd-bZn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
