@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 import Alamofire
+import SwiftyJSON
 
 class WeatherServiceOpenWeatherMap: WeatherService
 {
@@ -19,38 +20,57 @@ class WeatherServiceOpenWeatherMap: WeatherService
 	{
 		Alamofire.request(.GET, "http://api.openweathermap.org/data/2.5/weather?lat=\(location.latitude)&lon=\(location.longitude)&units=&APPID=\(apiKey)&units=\(units)").responseJSON
 		{ response in
-			
-			if let JSON = response.result.value
-			{
-				print(JSON)
-				let weather = (JSON["weather"] as! NSArray)[0] as! NSDictionary
-				let main = JSON["main"] as! NSDictionary
-				let wind = JSON["wind"] as! NSDictionary
-				let sys = JSON["sys"] as! NSDictionary
 
-				let country = NSLocale.systemLocale().displayNameForKey(NSLocaleCountryCode, value:sys["country"] as! String)!
-                let windDirection = self.windDirectionFromDegrees(wind["deg"] as! Int)
-
-				let currentWeather = CurrentWeather(
-					title: weather["main"] as! String,
-					city: JSON["name"] as! String,
-					country:country,
-					temperature: main["temp"] as! Int,
-					humidity: main["humidity"] as! Int,
-					rainVolume: 0,
-					pressure: main["pressure"] as! Int,
-					windSpeed: wind["speed"] as! Int,
-					windDirection: windDirection,
-					icon:self.weatherImageForDescription(weather["description"] as! String)
-				)
-				callback(currentWeather)
-			}
+			let json = JSON(response.result.value!)
+			let locale = NSLocale.systemLocale()
+			let country = locale.displayNameForKey(NSLocaleCountryCode, value: json["sys"]["country"].stringValue)!
+			let windDirection = self.windDirectionFromDegrees(json["wind"]["deg"].intValue)
+			let currentWeather = CurrentWeather(
+				title: json["weather", 0, "main"].stringValue,
+				city: json["name"].stringValue,
+				country: country,
+				temperature: json["main", "temp"].intValue,
+				humidity: json["main", "humidity"].intValue,
+				rainVolume: json["rain"]["3h"].intValue,
+				pressure: json["main", "pressure"].intValue,
+				windSpeed: json["wind", "speed"].intValue,
+				windDirection: windDirection,
+				icon: self.weatherImageForDescription(json["weather", 0, "main"].stringValue)
+			)
+//			print("SwiftyJSON \(json)")
+			callback(currentWeather)
 		}
 	}
 	
 	func forecastWeatherAtLocation(location:CLLocationCoordinate2D, callback:[ForecastWeather] -> Void)
 	{
-		
+        Alamofire.request(.GET, "http://api.openweathermap.org/data/2.5/forecast/daily?cnt=7&lat=\(location.latitude)&lon=\(location.longitude)&units=&APPID=\(apiKey)&units=\(units)").responseJSON
+        { response in
+
+			var forecastResult:[ForecastWeather] = []
+			let dateFormatter = NSDateFormatter()
+			dateFormatter.dateFormat = "EEEE"
+			let json = JSON(response.result.value!)
+			print("SwiftyJSON \(json)")
+
+			if let daysCount = json["cnt"].int
+			{
+				for index in 0..<daysCount
+				{
+					let current = json["list"][index]
+					let date = NSDate(timeIntervalSince1970: NSTimeInterval(current["dt"].intValue))
+					let dayOfWeekString = dateFormatter.stringFromDate(date)
+					let forecast = ForecastWeather(
+						title: current["weather", 0, "main"].stringValue,
+								temperature: current["temp", "day"].intValue,
+								day: dayOfWeekString,
+								icon: self.weatherImageForDescription(current["weather", 0, "main"].stringValue)
+					)
+					forecastResult.append(forecast)
+				}
+			}
+			callback(forecastResult)
+        }
 	}
 
     func windDirectionFromDegrees(var degrees:Int) -> String
@@ -83,15 +103,15 @@ class WeatherServiceOpenWeatherMap: WeatherService
         }
     }
 
-    func weatherImageForDescription(description:String) -> String
+    func weatherImageForDescription(key:String) -> String
     {
-        switch (description)
+        switch (key)
         {
-            case "few clouds", "scattered clouds", "broken clouds":
+            case "Clouds":
                 return "Cloudy_Big"
-            case "shower rain", "rain", "thunderstorm", "snow":
+            case "Thunderstorm", "Rain", "Drizzle", "Snow", "Atmosphere":
                 return "Lightning_Big"
-            case "mist":
+            case "Extreme", "Additional":
                 return "Wind_Big"
             default:
                 return "Sun_Big"

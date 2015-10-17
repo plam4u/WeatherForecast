@@ -12,6 +12,6 @@ struct ForecastWeather
 {
 	let title:String
 	let temperature:Int
-	let date:NSDate
+	let day:String
 	let icon:String
 }

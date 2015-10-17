@@ -7,16 +7,27 @@
 //
 
 import UIKit
+import MapKit
 
 class ForecastViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
+	var forecasts:[ForecastWeather] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 		tableView.delegate = self;
 		tableView.dataSource = self;
+
+        let location = CLLocationCoordinate2DMake(28.030031, -16.594047)
+        let weatherService = WeatherServiceOpenWeatherMap()
+        weatherService.forecastWeatherAtLocation(location)
+		{
+			forecasts in
+			self.forecasts = forecasts
+			self.tableView.reloadData()
+		}
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -31,12 +42,17 @@ extension ForecastViewController : UITableViewDataSource
 {
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
 	{
-		return 7;
+		return forecasts.count;
 	}
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
 	{
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+		let forecast = forecasts[indexPath.row]
+		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ForecastTableViewCell
+		cell.weatherImageView.image = UIImage(named:forecast.icon)
+		cell.weatherTitleLabel.text = "\(forecast.title)"
+		cell.temperatureLabel.text = "\(forecast.temperature)°"
+		cell.dayOfWeekLabel.text = forecast.day
 		return cell;
 	}
 	

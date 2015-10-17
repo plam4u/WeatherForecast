@@ -56,7 +56,7 @@
                                                 <rect key="frame" x="205" y="155" width="191" height="18"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="VEx-zk-lmS">
@@ -137,7 +137,7 @@
                                                         <rect key="frame" x="0.0" y="30" width="180" height="20"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CR" translatesAutoresizingMaskIntoConstraints="NO" id="v88-hl-m7g">
@@ -167,7 +167,7 @@
                                                         <rect key="frame" x="0.0" y="30" width="180" height="20"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rain" translatesAutoresizingMaskIntoConstraints="NO" id="Jgl-e7-DZw">
@@ -197,7 +197,7 @@
                                                         <rect key="frame" x="0.0" y="30" width="180" height="20"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Celcius" translatesAutoresizingMaskIntoConstraints="NO" id="8my-Ah-YxR">
@@ -227,7 +227,7 @@
                                                         <rect key="frame" x="0.0" y="30" width="180" height="20"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Wind" translatesAutoresizingMaskIntoConstraints="NO" id="lwH-x7-qwd">
@@ -257,7 +257,7 @@
                                                         <rect key="frame" x="0.0" y="30" width="180" height="20"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
-                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Dkj-bp-SWg">
@@ -383,44 +383,47 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="ol7-u3-Us6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="100" id="ol7-u3-Us6" customClass="ForecastTableViewCell" customModule="WeatherForecast" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ol7-u3-Us6" id="cwL-EX-G4n">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun_Mid" translatesAutoresizingMaskIntoConstraints="NO" id="LvQ-eK-qKL">
-                                                    <rect key="frame" x="17" y="22" width="55" height="55"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun_Mid" translatesAutoresizingMaskIntoConstraints="NO" id="LvQ-eK-qKL">
+                                                    <rect key="frame" x="17" y="28" width="45" height="45"/>
                                                     <animations/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="55" id="EPf-y3-OfN"/>
-                                                        <constraint firstAttribute="width" constant="55" id="Sho-al-zDg"/>
+                                                        <constraint firstAttribute="height" constant="45" id="EPf-y3-OfN"/>
+                                                        <constraint firstAttribute="width" constant="45" id="Sho-al-zDg"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Y-ZF-BhM">
-                                                    <rect key="frame" x="96" y="30" width="65" height="18"/>
+                                                    <rect key="frame" x="86" y="30" width="65" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="18"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttM-XF-kR1">
-                                                    <rect key="frame" x="96" y="53" width="41" height="15"/>
+                                                    <rect key="frame" x="86" y="53" width="41" height="15"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTC-Hc-sLZ">
-                                                    <rect key="frame" x="496" y="22" width="80" height="55"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTC-Hc-sLZ">
+                                                    <rect key="frame" x="498" y="22" width="90" height="55"/>
                                                     <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="UK1-EU-XMA"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="55"/>
                                                     <color key="textColor" red="0.18431372549019609" green="0.56862745098039214" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Divider" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-6C-fzh">
-                                                    <rect key="frame" x="96" y="99" width="504" height="1"/>
+                                                    <rect key="frame" x="86" y="99" width="514" height="1"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="IGH-T7-bWS"/>
@@ -432,6 +435,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="gqW-6C-fzh" secondAttribute="trailing" id="EBn-bC-QTn"/>
                                                 <constraint firstItem="LvQ-eK-qKL" firstAttribute="leading" secondItem="cwL-EX-G4n" secondAttribute="leadingMargin" constant="9" id="Hru-Lh-hbP"/>
                                                 <constraint firstItem="M5Y-ZF-BhM" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" constant="-11" id="Ryb-g3-Cpe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rTC-Hc-sLZ" secondAttribute="trailing" constant="4" id="Ssh-Gm-4DT"/>
                                                 <constraint firstItem="ttM-XF-kR1" firstAttribute="leading" secondItem="M5Y-ZF-BhM" secondAttribute="leading" id="TwN-PH-Uwp"/>
                                                 <constraint firstAttribute="bottom" secondItem="gqW-6C-fzh" secondAttribute="bottom" id="Wke-IX-6P9"/>
                                                 <constraint firstItem="gqW-6C-fzh" firstAttribute="leading" secondItem="M5Y-ZF-BhM" secondAttribute="leading" id="doO-Ge-UxA"/>
@@ -439,10 +443,15 @@
                                                 <constraint firstItem="rTC-Hc-sLZ" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" id="rLa-oJ-izX"/>
                                                 <constraint firstItem="LvQ-eK-qKL" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" id="uG2-FL-Gm0"/>
                                                 <constraint firstItem="ttM-XF-kR1" firstAttribute="centerY" secondItem="cwL-EX-G4n" secondAttribute="centerY" constant="11" id="v96-8m-o44"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rTC-Hc-sLZ" secondAttribute="trailing" constant="16" id="yht-5z-Gdr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="dayOfWeekLabel" destination="M5Y-ZF-BhM" id="l9u-Kx-EP6"/>
+                                            <outlet property="temperatureLabel" destination="rTC-Hc-sLZ" id="sV0-vP-Bat"/>
+                                            <outlet property="weatherImageView" destination="LvQ-eK-qKL" id="sLZ-Fa-dr3"/>
+                                            <outlet property="weatherTitleLabel" destination="ttM-XF-kR1" id="QTg-Do-IYs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
