@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  WeatherService.swift
 //  WeatherForecast
 //
 //  Created by Plamen Andreev on 10/17/15.
@@ -11,6 +11,6 @@ import MapKit
 
 protocol WeatherService
 {
-	func currentWeatherAtLocation(location:CLLocationCoordinate2D, callback:AnyObject -> Void)
-	func forecastWeatherAtLocation(location:CLLocationCoordinate2D, callback:[AnyObject] -> Void)
+	func currentWeatherAtLocation(location:CLLocationCoordinate2D, callback:CurrentWeather -> Void)
+	func forecastWeatherAtLocation(location:CLLocationCoordinate2D, callback:[ForecastWeather] -> Void)
 }
