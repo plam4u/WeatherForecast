@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		68BE294A1BCFA6CE00C280EF /* WeatherForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29491BCFA6CE00C280EF /* WeatherForecastTests.swift */; };
 		68BE29551BCFA6CE00C280EF /* WeatherForecastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29541BCFA6CE00C280EF /* WeatherForecastUITests.swift */; };
-		68BE29721BCFAEDF00C280EF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29701BCFAEDF00C280EF /* TodayViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		68BE29731BCFAEDF00C280EF /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29711BCFAEDF00C280EF /* ForecastViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		68BE29781BCFAEFC00C280EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29741BCFAEFC00C280EF /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
 		68BE29881BCFB1CD00C280EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29841BCFB1CD00C280EF /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		68BE29891BCFB1CD00C280EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29861BCFB1CD00C280EF /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -19,6 +17,8 @@
 		68BE29991BD0376B00C280EF /* ProximaNova-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29941BD0376B00C280EF /* ProximaNova-Regular.otf */; settings = {ASSET_TAGS = (); }; };
 		68BE299A1BD0376B00C280EF /* ProximaNova-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29951BD0376B00C280EF /* ProximaNova-Semibold.otf */; settings = {ASSET_TAGS = (); }; };
 		68BE299C1BD0388E00C280EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE299B1BD0388E00C280EF /* AppDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		68BE29B31BD2AA9F00C280EF /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29B21BD2AA9F00C280EF /* TodayViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		68BE29B51BD2AAA500C280EF /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29B41BD2AAA500C280EF /* ForecastViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		A9A3F9243E0F6762D60E1D58 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CCAC2DFCCB5C577E669A35C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -49,11 +49,8 @@
 		68BE29501BCFA6CE00C280EF /* WeatherForecastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherForecastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BE29541BCFA6CE00C280EF /* WeatherForecastUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUITests.swift; sourceTree = "<group>"; };
 		68BE29561BCFA6CE00C280EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		68BE29701BCFAEDF00C280EF /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayViewController.swift; path = Classes/Controller/TodayViewController.swift; sourceTree = "<group>"; };
-		68BE29711BCFAEDF00C280EF /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastViewController.swift; path = Classes/Controller/ForecastViewController.swift; sourceTree = "<group>"; };
 		68BE29741BCFAEFC00C280EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		68BE29761BCFAEFC00C280EF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		68BE29771BCFAEFC00C280EF /* WeatherForecast-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WeatherForecast-Bridging-Header.h"; path = "Resources/WeatherForecast-Bridging-Header.h"; sourceTree = "<group>"; };
 		68BE29851BCFB1CD00C280EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Storyboards/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68BE29871BCFB1CD00C280EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		68BE29921BD0376B00C280EF /* ProximaNova-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Bold.otf"; sourceTree = "<group>"; };
@@ -61,6 +58,9 @@
 		68BE29941BD0376B00C280EF /* ProximaNova-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.otf"; sourceTree = "<group>"; };
 		68BE29951BD0376B00C280EF /* ProximaNova-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.otf"; sourceTree = "<group>"; };
 		68BE299B1BD0388E00C280EF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		68BE29B01BD2AA0F00C280EF /* WeatherForecast-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "WeatherForecast-Bridging-Header.h"; path = "Supporting Files/WeatherForecast-Bridging-Header.h"; sourceTree = "<group>"; };
+		68BE29B21BD2AA9F00C280EF /* TodayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayViewController.swift; path = Classes/Features/Today/TodayViewController.swift; sourceTree = "<group>"; };
+		68BE29B41BD2AAA500C280EF /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastViewController.swift; path = Classes/Features/Forecast/ForecastViewController.swift; sourceTree = "<group>"; };
 		8C12B01808AEE6798B2BAA6F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,6 +118,7 @@
 				68BE299B1BD0388E00C280EF /* AppDelegate.swift */,
 				68BE296A1BCFAE1200C280EF /* Classes */,
 				68BE296B1BCFAE1900C280EF /* Resources */,
+				68BE29AF1BD2A9C200C280EF /* Supporting Files */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -143,8 +144,7 @@
 		68BE296A1BCFAE1200C280EF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				68BE299E1BD03A4000C280EF /* Today */,
-				68BE299F1BD03A4400C280EF /* Forecast */,
+				68BE29B11BD2AA8E00C280EF /* Features */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -153,34 +153,11 @@
 			isa = PBXGroup;
 			children = (
 				68BE29831BCFB19F00C280EF /* Storyboards */,
-				68BE29741BCFAEFC00C280EF /* Assets.xcassets */,
 				68BE29901BD0376B00C280EF /* Fonts */,
+				68BE29741BCFAEFC00C280EF /* Assets.xcassets */,
 				68BE29761BCFAEFC00C280EF /* Info.plist */,
-				68BE29771BCFAEFC00C280EF /* WeatherForecast-Bridging-Header.h */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		68BE296C1BCFAEB600C280EF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		68BE296D1BCFAEBF00C280EF /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		68BE296E1BCFAEC500C280EF /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				68BE29701BCFAEDF00C280EF /* TodayViewController.swift */,
-			);
-			name = Controller;
 			sourceTree = "<group>";
 		};
 		68BE29831BCFB19F00C280EF /* Storyboards */ = {
@@ -207,9 +184,7 @@
 		68BE299E1BD03A4000C280EF /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				68BE296D1BCFAEBF00C280EF /* Model */,
-				68BE296C1BCFAEB600C280EF /* View */,
-				68BE296E1BCFAEC500C280EF /* Controller */,
+				68BE29B21BD2AA9F00C280EF /* TodayViewController.swift */,
 			);
 			name = Today;
 			sourceTree = "<group>";
@@ -217,33 +192,26 @@
 		68BE299F1BD03A4400C280EF /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
-				68BE29A11BD03A6A00C280EF /* Model */,
-				68BE29A21BD03A7600C280EF /* View */,
-				68BE29A01BD03A5F00C280EF /* Controller */,
+				68BE29B41BD2AAA500C280EF /* ForecastViewController.swift */,
 			);
 			name = Forecast;
 			sourceTree = "<group>";
 		};
-		68BE29A01BD03A5F00C280EF /* Controller */ = {
+		68BE29AF1BD2A9C200C280EF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				68BE29711BCFAEDF00C280EF /* ForecastViewController.swift */,
+				68BE29B01BD2AA0F00C280EF /* WeatherForecast-Bridging-Header.h */,
 			);
-			name = Controller;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		68BE29A11BD03A6A00C280EF /* Model */ = {
+		68BE29B11BD2AA8E00C280EF /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				68BE299E1BD03A4000C280EF /* Today */,
+				68BE299F1BD03A4400C280EF /* Forecast */,
 			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		68BE29A21BD03A7600C280EF /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = View;
+			name = Features;
 			sourceTree = "<group>";
 		};
 		7D1EB748670DFA29C26FC77D /* Frameworks */ = {
@@ -449,9 +417,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BE29B31BD2AA9F00C280EF /* TodayViewController.swift in Sources */,
 				68BE299C1BD0388E00C280EF /* AppDelegate.swift in Sources */,
-				68BE29731BCFAEDF00C280EF /* ForecastViewController.swift in Sources */,
-				68BE29721BCFAEDF00C280EF /* TodayViewController.swift in Sources */,
+				68BE29B51BD2AAA500C280EF /* ForecastViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,7 +568,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.plamenandreev.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Resources/WeatherForecast-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Supporting Files/WeatherForecast-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -616,7 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.plamenandreev.WeatherForecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Resources/WeatherForecast-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherForecast/Supporting Files/WeatherForecast-Bridging-Header.h";
 			};
 			name = Release;
 		};
