@@ -10,8 +10,32 @@ import UIKit
 import MapKit
 import Firebase
 
-class TodayViewController: UIViewController {
+class TodayViewController: UIViewController
+{
 
+	var currentWeather:CurrentWeather!
+	{
+		get
+		{
+			return self.currentWeather
+		}
+		
+		set(weather)
+		{
+			self.navigationItem.title = weather.city
+			LocationManager.sharedInstance.lastCity = weather.city
+			
+			self.locationLabel.text = "\(weather.city), \(weather.country)"
+			self.temperatureLabel.text = "\(weather.temperature) °C | \(weather.title)"
+			self.humidityLabel.text = "\(weather.humidity) %"
+			self.volumeLabel.text = "\(weather.rainVolume) mm"
+			self.pressureLabel.text = "\(weather.pressure) hPa"
+			self.windSpeedLabel.text = "\(weather.windSpeed) m/s"
+			self.windDirectionLabel.text = weather.windDirection
+			self.weatherImageView.image = UIImage(named: weather.icon)
+		}
+	}
+	
 	@IBOutlet weak var weatherImageView: UIImageView!
 	@IBOutlet weak var temperatureLabel: UILabel!
 	@IBOutlet weak var locationLabel: UILabel!
@@ -23,46 +47,34 @@ class TodayViewController: UIViewController {
 	
 	@IBOutlet weak var shareButton: UIButton!
 	
-	override func viewDidLoad() {
+	override func viewDidLoad()
+	{
 		super.viewDidLoad()
 		
-		refresh()
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: Constants.Notification.LocationDidChanged, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(
+			self,
+			selector: "featchWeather",
+			name: Constants.Notification.LocationDidChanged,
+			object: nil
+		)
 		
-		let connectedRef = Firebase(url:"https://popping-fire-2392.firebaseio.com/.info/connected")
-		connectedRef.observeEventType(.Value, withBlock: { snapshot in
-			let connected = snapshot.value as? Bool
-			if connected != nil && connected! {
-				debugPrint("Connected")
-			} else {
-				debugPrint("Not connected")
-			}
-		})
+		featchWeather()
 	}
 
-	func refresh()
+	func featchWeather()
 	{
 		if let location = LocationManager.sharedInstance.lastLocation
 		{
 			WeatherServiceOpenWeatherMap.sharedInstance.currentWeatherAtLocation(location)
-				{
-					weather in
-					debugPrint(weather)
-					
-					self.navigationItem.title = weather.city
-					LocationManager.sharedInstance.lastCity = weather.city
-					
-					self.locationLabel.text = "\(weather.city), \(weather.country)"
-					self.temperatureLabel.text = "\(weather.temperature) °C | \(weather.title)"
-					self.humidityLabel.text = "\(weather.humidity) %"
-					self.volumeLabel.text = "\(weather.rainVolume) mm"
-					self.pressureLabel.text = "\(weather.pressure) hPa"
-					self.windSpeedLabel.text = "\(weather.windSpeed) m/s"
-					self.windDirectionLabel.text = weather.windDirection
-					self.weatherImageView.image = UIImage(named: weather.icon)
+			{ weather in
+				
+				debugPrint(weather)
+				self.currentWeather = weather
 			}
 		}
 	}
+	
+	// MARK: - Event handling
 	@IBAction func tappedShareButton(sender: AnyObject)
 	{
 		if let temperature = self.temperatureLabel.text, location = self.locationLabel.text

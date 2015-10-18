@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import Firebase
 
-class LocationManager: NSObject, CLLocationManagerDelegate
+class LocationManager: NSObject
 {
 	static let sharedInstance = LocationManager()
 	
@@ -26,8 +26,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 		
 		locationFirebaseRef.observeEventType(.Value)
 		{ (snapshot:FDataSnapshot!) -> Void in
+			
 			debugPrint("Firebase retrieved snapshot: \(snapshot.value)")
-			if let lat = snapshot.value["lat"] as? Double, lon = snapshot.value["lon"] as? Double
+			
+			if let lat = snapshot.value["lat"] as? Double,
+				   lon = snapshot.value["lon"] as? Double
 			{
 				self.lastLocation = CLLocationCoordinate2DMake(lat, lon)
 			}
@@ -48,21 +51,30 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 	{
 		locationManager.stopUpdatingLocation()
 	}
-	
+}
+
+extension LocationManager: CLLocationManagerDelegate
+{
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
 	{
 		lastLocation = locations[locations.count - 1].coordinate
 		
-		let lastLocationDict = ["lat": lastLocation.latitude, "lon":lastLocation.longitude]
+		let lastLocationDict = [
+			"lat": lastLocation.latitude,
+			"lon":lastLocation.longitude
+		]
 		locationFirebaseRef.setValue(lastLocationDict)
 		
-		let notification = NSNotification(name: Constants.Notification.LocationDidChanged, object: self, userInfo: ["location":["lat":lastLocation.latitude, "lon":lastLocation.longitude]])
+		let notification = NSNotification(
+			name: Constants.Notification.LocationDidChanged,
+			object: self,
+			userInfo: ["location":lastLocationDict]
+		)
 		NSNotificationCenter.defaultCenter().postNotification(notification)
 	}
 	
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
 	{
-		// TODO: handle case with location not available
 		debugPrint(error.description)
 	}
 }

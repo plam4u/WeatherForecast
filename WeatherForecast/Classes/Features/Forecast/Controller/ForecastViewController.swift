@@ -9,32 +9,39 @@
 import UIKit
 import MapKit
 
-class ForecastViewController: UIViewController {
+class ForecastViewController: UIViewController
+{
 
 	@IBOutlet weak var tableView: UITableView!
 	var forecasts:[ForecastWeather] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
 		tableView.delegate = self;
 		tableView.dataSource = self;
 
-		refresh()
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: Constants.Notification.LocationDidChanged, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(
+			self,
+			selector: "fetchWeather",
+			name: Constants.Notification.LocationDidChanged,
+			object: nil
+		)
+		
+		fetchWeather()
 	}
 
-	func refresh()
+	func fetchWeather()
 	{
 		self.navigationItem.title = LocationManager.sharedInstance.lastCity
 		
 		if let location = LocationManager.sharedInstance.lastLocation
 		{
 			WeatherServiceOpenWeatherMap.sharedInstance.forecastWeatherAtLocation(location)
-				{
-					forecasts in
-					self.forecasts = forecasts
-					self.tableView.reloadData()
+			{ forecasts in
+				
+				self.forecasts = forecasts
+				self.tableView.reloadData()
 			}
 		}
 	}

@@ -8,7 +8,8 @@
 
 import Foundation
 
-func debugPrint(message: String, function: String = __FUNCTION__, file: String = __FILE__) {
+func debugPrint(message: String, function: String = __FUNCTION__, file: String = __FILE__)
+{
 	#if DEBUG
 		let fileName = (file.componentsSeparatedByString("/").last)
 		let fileNameWithoutExtension = fileName?.componentsSeparatedByString(".").first
