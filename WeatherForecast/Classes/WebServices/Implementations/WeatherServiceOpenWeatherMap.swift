@@ -25,21 +25,21 @@ class WeatherServiceOpenWeatherMap: WeatherService
 	private init()
 	{
 		currentWeatherFirebaseRef.observeEventType(.Value, withBlock: { snapshot in
-			print(snapshot.value)
+			debugPrint(snapshot.value)
 			}, withCancelBlock: { error in
-				print(error.description)
+				debugPrint(error.description)
 		})
 	}
 	
 	func currentWeatherAtLocation(location:CLLocationCoordinate2D, callback:CurrentWeather -> Void)
 	{
-		print("currentWeatherAtLocation")
+		debugPrint("currentWeatherAtLocation")
 		
 		
 		currentWeatherFirebaseRef.observeEventType(.Value)
 			{ (snapshot:FDataSnapshot!) -> Void in
 				
-				print("retrieved current weather")
+				debugPrint("retrieved current weather")
 				if let weatherDict = snapshot.value
 				{
 					let currentWeather = CurrentWeather(
@@ -58,7 +58,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 				}
 				else
 				{
-					print("current weather firebase failed")
+					debugPrint("current weather firebase failed")
 				}
 		}
 
@@ -68,7 +68,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 			if let jsonResult = response.result.value
 			{
 				let json = JSON(jsonResult)
-//				print("SwiftyJSON \(json)")
+//				debugPrint("SwiftyJSON \(json)")
 				let locale = NSLocale.systemLocale()
 				let country = locale.displayNameForKey(NSLocaleCountryCode, value: json["sys"]["country"].stringValue)!
 				let windDirection = self.windDirectionFromDegrees(json["wind"]["deg"].intValue)
@@ -85,7 +85,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 					"windDirection": windDirection,
 					"icon": self.weatherImageForDescription(json["weather", 0, "main"].stringValue)
 				]
-				print("setValue current weather")
+				debugPrint("setValue current weather")
 				self.currentWeatherFirebaseRef.setValue(weatherDict)
 			}
 		}
@@ -96,7 +96,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 		forecastWeatherFirebaseRef.observeEventType(.Value)
 		{ (snapshot:FDataSnapshot!) -> Void in
 			
-			print("retrieved forecast weather")
+			debugPrint("retrieved forecast weather")
 			if let forecasts = snapshot.value as? [AnyObject!]
 			{
 //					var forecastResult:[ForecastWeather] = []
@@ -107,7 +107,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 				{
 					if let forecastDict = forecast as? [String:AnyObject!]
 					{
-						print(forecastDict["a"])
+						debugPrint(forecastDict["a"])
 						
 						let forecast = ForecastWeather(
 							title: forecastDict["title"]! as! String,
@@ -122,7 +122,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 			}
 			else
 			{
-				print("forecast weather firebase failed")
+				debugPrint("forecast weather firebase failed")
 			}
 		}
 		
@@ -133,7 +133,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 			if let jsonResult = response.result.value
 			{
 				let json = JSON(jsonResult)
-				print("SwiftyJSON \(json)")
+				debugPrint("SwiftyJSON \(json)")
 				
 				let dateFormatter = NSDateFormatter()
 				dateFormatter.dateFormat = "EEEE"

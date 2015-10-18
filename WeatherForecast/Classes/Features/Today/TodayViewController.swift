@@ -27,15 +27,15 @@ class TodayViewController: UIViewController {
 		super.viewDidLoad()
 		
 		refresh()
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: Constants.Notification.LocationDidChanged, object: nil)
 		
 		let connectedRef = Firebase(url:"https://popping-fire-2392.firebaseio.com/.info/connected")
 		connectedRef.observeEventType(.Value, withBlock: { snapshot in
 			let connected = snapshot.value as? Bool
 			if connected != nil && connected! {
-				print("Connected")
+				debugPrint("Connected")
 			} else {
-				print("Not connected")
+				debugPrint("Not connected")
 			}
 		})
 	}
@@ -47,7 +47,7 @@ class TodayViewController: UIViewController {
 			WeatherServiceOpenWeatherMap.sharedInstance.currentWeatherAtLocation(location)
 				{
 					weather in
-					print(weather)
+					debugPrint(weather)
 					
 					self.navigationItem.title = weather.city
 					LocationManager.sharedInstance.lastCity = weather.city

@@ -19,9 +19,9 @@ class ForecastViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		tableView.delegate = self;
 		tableView.dataSource = self;
-		
+
 		refresh()
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: Constants.Notification.LocationDidChanged, object: nil)
 	}
 
 	func refresh()
@@ -49,22 +49,17 @@ extension ForecastViewController : UITableViewDataSource
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
 	{
-		let forecast = forecasts[indexPath.row]
-		let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ForecastTableViewCell
-		cell.weatherImageView.image = UIImage(named:forecast.icon)
-		cell.weatherTitleLabel.text = "\(forecast.title)"
-		cell.temperatureLabel.text = "\(forecast.temperature)°"
-		cell.dayOfWeekLabel.text = forecast.day
-		return cell;
-	}
-	
-	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
-	{
-		return tableView.bounds.size.height / round(tableView.bounds.size.height / 90);
+		let forecastCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! ForecastTableViewCell
+		forecastCell.forecast = forecasts[indexPath.row]
+		return forecastCell;
 	}
 }
 
 extension ForecastViewController : UITableViewDelegate
 {
 	
+	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+	{
+		return tableView.bounds.size.height / round(tableView.bounds.size.height / 90);
+	}
 }
