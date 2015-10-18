@@ -7,16 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
-		
 		return true
 	}
 
@@ -35,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func applicationDidBecomeActive(application: UIApplication) {
-		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+		// Users usually open the app to check the weather and leave it
+		// thus update the location only on startup to preserve battery
+		LocationManager.sharedInstance.startUpdatingLocation()
 	}
 
 	func applicationWillTerminate(application: UIApplication) {

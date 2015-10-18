@@ -13,6 +13,8 @@ import SwiftyJSON
 
 class WeatherServiceOpenWeatherMap: WeatherService
 {
+	static let sharedInstance = WeatherServiceOpenWeatherMap()
+	
 	var units = "metric"
 	var apiKey = "cc58c41e06d028b05470a1acddc81c1e"
 	
@@ -82,7 +84,7 @@ class WeatherServiceOpenWeatherMap: WeatherService
 
         switch (degrees)
         {
-        case let (x) where x >= 338 && x < 24:
+        case 338...360, 0..<24:
             return "N"
         case 24 ..< 68:
             return "NE"

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		348B2B963747B172AB44E401 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348B2EF9698E7AEEE6D9E379 /* ForecastViewController.swift */; };
 		68B74F6E1BD2F6E3003092E4 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B74F6D1BD2F6E3003092E4 /* ForecastTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		68B74F701BD30784003092E4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B74F6F1BD30784003092E4 /* CoreLocation.framework */; };
+		68B74F751BD30F8A003092E4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B74F741BD30F8A003092E4 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		68BE294A1BCFA6CE00C280EF /* WeatherForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29491BCFA6CE00C280EF /* WeatherForecastTests.swift */; };
 		68BE29551BCFA6CE00C280EF /* WeatherForecastUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BE29541BCFA6CE00C280EF /* WeatherForecastUITests.swift */; };
 		68BE29781BCFAEFC00C280EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68BE29741BCFAEFC00C280EF /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
@@ -48,6 +50,8 @@
 		17CD4D54C43A201DC2AAF832 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		348B2EF9698E7AEEE6D9E379 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastViewController.swift; path = Classes/Features/Forecast/Controller/ForecastViewController.swift; sourceTree = "<group>"; };
 		68B74F6D1BD2F6E3003092E4 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastTableViewCell.swift; path = Classes/Features/Forecast/View/ForecastTableViewCell.swift; sourceTree = "<group>"; };
+		68B74F6F1BD30784003092E4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		68B74F741BD30F8A003092E4 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Classes/Common/LocationManager.swift; sourceTree = "<group>"; };
 		68BE292F1BCFA6CE00C280EF /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BE29451BCFA6CE00C280EF /* WeatherForecastTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherForecastTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68BE29491BCFA6CE00C280EF /* WeatherForecastTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastTests.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68B74F701BD30784003092E4 /* CoreLocation.framework in Frameworks */,
 				E1C5964CA06A326E6377BBDA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +119,14 @@
 				348B2EF9698E7AEEE6D9E379 /* ForecastViewController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		68B74F731BD30F67003092E4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				68B74F741BD30F8A003092E4 /* LocationManager.swift */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		68BE29261BCFA6CE00C280EF = {
@@ -170,6 +183,7 @@
 		68BE296A1BCFAE1200C280EF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				68B74F731BD30F67003092E4 /* Common */,
 				68BE29B61BD2AAF400C280EF /* WebServices */,
 				68BE29B11BD2AA8E00C280EF /* Features */,
 			);
@@ -272,6 +286,7 @@
 		7D1EB748670DFA29C26FC77D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68B74F6F1BD30784003092E4 /* CoreLocation.framework */,
 				DE86C86DB7FA309D46E727F4 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -357,6 +372,11 @@
 				TargetAttributes = {
 					68BE292E1BCFA6CE00C280EF = {
 						CreatedOnToolsVersion = 7.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					68BE29441BCFA6CE00C280EF = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -480,6 +500,7 @@
 				68BE29BE1BD2AD7600C280EF /* ForecastWeather.swift in Sources */,
 				68BE299C1BD0388E00C280EF /* AppDelegate.swift in Sources */,
 				348B2B963747B172AB44E401 /* ForecastViewController.swift in Sources */,
+				68B74F751BD30F8A003092E4 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

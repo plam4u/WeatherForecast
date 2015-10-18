@@ -26,29 +26,33 @@ class TodayViewController: UIViewController {
 		super.viewDidLoad()
 		
 		// Do any additional setup after loading the view, typically from a nib.
-		let location = CLLocationCoordinate2DMake(28.030031, -16.594047)
-		let weatherService = WeatherServiceOpenWeatherMap()
-		weatherService.currentWeatherAtLocation(location)
-		{
-			weather in
-			print(weather)
+		refresh()
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
+	}
 
-            self.locationLabel.text = "\(weather.city), \(weather.country)"
-            self.temperatureLabel.text = "\(weather.temperature) °C | \(weather.title)"
-            self.humidityLabel.text = "\(weather.humidity) %"
-            self.volumeLabel.text = "\(weather.rainVolume) mm"
-            self.pressureLabel.text = "\(weather.pressure) hPa"
-            self.windSpeedLabel.text = "\(weather.windSpeed) m/s"
-            self.windDirectionLabel.text = weather.windDirection
-            self.weatherImageView.image = UIImage(named: weather.icon)
+	func refresh()
+	{
+//		let location = CLLocationCoordinate2DMake(28.030031, -16.594047)
+		if let location = LocationManager.sharedInstance.lastLocation?.coordinate
+		{
+			WeatherServiceOpenWeatherMap.sharedInstance.currentWeatherAtLocation(location)
+				{
+					weather in
+					print(weather)
+					
+					self.navigationItem.title = weather.city
+					LocationManager.sharedInstance.lastCity = weather.city
+					
+					self.locationLabel.text = "\(weather.city), \(weather.country)"
+					self.temperatureLabel.text = "\(weather.temperature) °C | \(weather.title)"
+					self.humidityLabel.text = "\(weather.humidity) %"
+					self.volumeLabel.text = "\(weather.rainVolume) mm"
+					self.pressureLabel.text = "\(weather.pressure) hPa"
+					self.windSpeedLabel.text = "\(weather.windSpeed) m/s"
+					self.windDirectionLabel.text = weather.windDirection
+					self.weatherImageView.image = UIImage(named: weather.icon)
+			}
 		}
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
-
 }
 

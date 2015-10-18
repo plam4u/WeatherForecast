@@ -19,23 +19,25 @@ class ForecastViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		tableView.delegate = self;
 		tableView.dataSource = self;
+		
+		refresh()
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
+	}
 
-        let location = CLLocationCoordinate2DMake(28.030031, -16.594047)
-        let weatherService = WeatherServiceOpenWeatherMap()
-        weatherService.forecastWeatherAtLocation(location)
+	func refresh()
+	{
+		self.navigationItem.title = LocationManager.sharedInstance.lastCity
+		
+		if let location = LocationManager.sharedInstance.lastLocation?.coordinate
 		{
-			forecasts in
-			self.forecasts = forecasts
-			self.tableView.reloadData()
+			WeatherServiceOpenWeatherMap.sharedInstance.forecastWeatherAtLocation(location)
+				{
+					forecasts in
+					self.forecasts = forecasts
+					self.tableView.reloadData()
+			}
 		}
 	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
-
 }
 
 extension ForecastViewController : UITableViewDataSource
