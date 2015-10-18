@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 		// Override point for customization after application launch.
 		Firebase.defaultConfig().persistenceEnabled = true
+		LocationManager.sharedInstance.startUpdatingLocation()
 		return true
 	}
 
@@ -38,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationDidBecomeActive(application: UIApplication) {
 		// Users usually open the app to check the weather and leave it
 		// thus update the location only on startup to preserve battery
-		LocationManager.sharedInstance.startUpdatingLocation()
 	}
 
 	func applicationWillTerminate(application: UIApplication) {

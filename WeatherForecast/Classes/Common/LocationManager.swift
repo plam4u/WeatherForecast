@@ -52,7 +52,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
 	{
 		lastLocation = locations[locations.count - 1].coordinate
-		locationManager.stopUpdatingLocation()
+//		locationManager.stopUpdatingLocation()
 		
 		let lastLocationDict = ["lat": lastLocation.latitude, "lon":lastLocation.longitude]
 		locationFirebaseRef.setValue(lastLocationDict)
