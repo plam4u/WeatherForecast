@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class TodayViewController: UIViewController {
 
@@ -27,11 +28,21 @@ class TodayViewController: UIViewController {
 		
 		refresh()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
+		
+		let connectedRef = Firebase(url:"https://popping-fire-2392.firebaseio.com/.info/connected")
+		connectedRef.observeEventType(.Value, withBlock: { snapshot in
+			let connected = snapshot.value as? Bool
+			if connected != nil && connected! {
+				print("Connected")
+			} else {
+				print("Not connected")
+			}
+		})
 	}
 
 	func refresh()
 	{
-		if let location = LocationManager.sharedInstance.lastLocation?.coordinate
+		if let location = LocationManager.sharedInstance.lastLocation
 		{
 			WeatherServiceOpenWeatherMap.sharedInstance.currentWeatherAtLocation(location)
 				{

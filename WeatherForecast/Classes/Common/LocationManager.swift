@@ -8,17 +8,32 @@
 
 import Foundation
 import CoreLocation
+import Firebase
 
 class LocationManager: NSObject, CLLocationManagerDelegate
 {
 	static let sharedInstance = LocationManager()
+	
 	var locationManager:CLLocationManager!
-	var lastLocation:CLLocation!
+	var lastLocation:CLLocationCoordinate2D!
 	var lastCity:String!
+	
+	var locationFirebaseRef:Firebase = Firebase(url:"https://popping-fire-2392.firebaseio.com/location")
 	
 	private override init()
 	{
 		super.init()
+		
+		locationFirebaseRef.observeEventType(.Value)
+		{ (snapshot:FDataSnapshot!) -> Void in
+			print("Firebase retrieved snapshot: \(snapshot.value)")
+			if let lat = snapshot.value["lat"] as? Double, lon = snapshot.value["lon"] as? Double
+			{
+				self.lastLocation = CLLocationCoordinate2DMake(lat, lon)
+			}
+			
+		}
+		
 		locationManager = CLLocationManager()
 		locationManager.delegate = self
 		locationManager.requestWhenInUseAuthorization()
@@ -36,12 +51,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate
 	
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
 	{
-		lastLocation = locations[locations.count - 1]
+		lastLocation = locations[locations.count - 1].coordinate
 		locationManager.stopUpdatingLocation()
 		
-		let notification = NSNotification(name: "NotificationLocationDidChanged", object: self, userInfo: ["location":lastLocation])
+		let lastLocationDict = ["lat": lastLocation.latitude, "lon":lastLocation.longitude]
+		locationFirebaseRef.setValue(lastLocationDict)
+		
+		let notification = NSNotification(name: "NotificationLocationDidChanged", object: self, userInfo: ["location":["lat":lastLocation.latitude, "lon":lastLocation.longitude]])
 		NSNotificationCenter.defaultCenter().postNotification(notification)
-		print("\(lastLocation.coordinate.latitude) '\(lastLocation.coordinate.longitude)")
+//		print("\(lastLocation.coordinate.latitude) '\(lastLocation.coordinate.longitude)")
 	}
 	
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError)

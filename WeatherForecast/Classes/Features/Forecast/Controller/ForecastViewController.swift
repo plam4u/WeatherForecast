@@ -28,7 +28,7 @@ class ForecastViewController: UIViewController {
 	{
 		self.navigationItem.title = LocationManager.sharedInstance.lastCity
 		
-		if let location = LocationManager.sharedInstance.lastLocation?.coordinate
+		if let location = LocationManager.sharedInstance.lastLocation
 		{
 			WeatherServiceOpenWeatherMap.sharedInstance.forecastWeatherAtLocation(location)
 				{
