@@ -111,6 +111,9 @@
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" red="1" green="0.53333333333333333" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tappedShareButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="EaX-GW-nFH"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <animations/>

@@ -25,14 +25,12 @@ class TodayViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Do any additional setup after loading the view, typically from a nib.
 		refresh()
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "NotificationLocationDidChanged", object: nil)
 	}
 
 	func refresh()
 	{
-//		let location = CLLocationCoordinate2DMake(28.030031, -16.594047)
 		if let location = LocationManager.sharedInstance.lastLocation?.coordinate
 		{
 			WeatherServiceOpenWeatherMap.sharedInstance.currentWeatherAtLocation(location)
@@ -52,6 +50,20 @@ class TodayViewController: UIViewController {
 					self.windDirectionLabel.text = weather.windDirection
 					self.weatherImageView.image = UIImage(named: weather.icon)
 			}
+		}
+	}
+	@IBAction func tappedShareButton(sender: AnyObject)
+	{
+		if let temperature = self.temperatureLabel.text, location = self.locationLabel.text
+		{
+			let someText:String = "\(temperature) in \(location)"
+			let activityViewController = UIActivityViewController(activityItems: [someText], applicationActivities: nil)
+			self.navigationController!.presentViewController(activityViewController, animated: true, completion: nil)
+		}
+		else
+		{
+			let alert = UIAlertView(title: "Invalid weather conditions", message: "Cannot share right now. Try again later.", delegate: nil, cancelButtonTitle: "OK")
+			alert.show()
 		}
 	}
 }
