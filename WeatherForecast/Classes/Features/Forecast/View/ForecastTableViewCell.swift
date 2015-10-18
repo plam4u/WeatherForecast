@@ -15,14 +15,19 @@ class ForecastTableViewCell: UITableViewCell
 	@IBOutlet weak var weatherTitleLabel: UILabel!
 	@IBOutlet weak var temperatureLabel: UILabel!
 	
+	override func awakeFromNib()
+	{
+		selectionStyle = UITableViewCellSelectionStyle.None
+	}
+	
 	var forecast:ForecastWeather
 	{
 		set(newForecast)
 		{
-			self.weatherImageView.image = UIImage(named: newForecast.icon)
-			self.weatherTitleLabel.text = "\(newForecast.title)"
-			self.temperatureLabel.text = "\(newForecast.temperature)°"
-			self.dayOfWeekLabel.text = newForecast.day
+			weatherImageView.image = UIImage(named: newForecast.icon)
+			weatherTitleLabel.text = "\(newForecast.title)"
+			temperatureLabel.text = "\(newForecast.temperature)°"
+			dayOfWeekLabel.text = newForecast.day
 		}
 		
 		get

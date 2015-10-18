@@ -15,7 +15,7 @@ struct CurrentWeather
 	let country:String
 	let temperature:Int
 	let humidity:Int
-	let rainVolume:Int
+	let rainVolume:Double
 	let pressure:Int
 	let windSpeed:Int
     let windDirection:String

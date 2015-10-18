@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		348B2B963747B172AB44E401 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348B2EF9698E7AEEE6D9E379 /* ForecastViewController.swift */; };
+		68506F8E1BD44B5200FAF8A6 /* OpenWeatherMapUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68506F8D1BD44B5200FAF8A6 /* OpenWeatherMapUtils.swift */; settings = {ASSET_TAGS = (); }; };
 		687CF6D31BD428BA00676652 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CF6D21BD428BA00676652 /* Constants.swift */; settings = {ASSET_TAGS = (); }; };
 		687CF6D51BD429D900676652 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CF6D41BD429D900676652 /* Utils.swift */; settings = {ASSET_TAGS = (); }; };
 		68B74F6E1BD2F6E3003092E4 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68B74F6D1BD2F6E3003092E4 /* ForecastTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		17CD4D54C43A201DC2AAF832 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		348B2EF9698E7AEEE6D9E379 /* ForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastViewController.swift; path = Classes/Features/Forecast/Controller/ForecastViewController.swift; sourceTree = "<group>"; };
+		68506F8D1BD44B5200FAF8A6 /* OpenWeatherMapUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OpenWeatherMapUtils.swift; path = Classes/WebServices/Implementations/OpenWeatherMapUtils.swift; sourceTree = "<group>"; };
 		687CF6D21BD428BA00676652 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classes/Common/Constants.swift; sourceTree = "<group>"; };
 		687CF6D41BD429D900676652 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Utils.swift; path = Classes/Common/Utils.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		68B74F6D1BD2F6E3003092E4 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastTableViewCell.swift; path = Classes/Features/Forecast/View/ForecastTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				68BE29C21BD2B4BF00C280EF /* WeatherServiceOpenWeatherMap.swift */,
+				68506F8D1BD44B5200FAF8A6 /* OpenWeatherMapUtils.swift */,
 			);
 			name = Implementations;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				68BE29BE1BD2AD7600C280EF /* ForecastWeather.swift in Sources */,
 				687CF6D51BD429D900676652 /* Utils.swift in Sources */,
 				68BE299C1BD0388E00C280EF /* AppDelegate.swift in Sources */,
+				68506F8E1BD44B5200FAF8A6 /* OpenWeatherMapUtils.swift in Sources */,
 				348B2B963747B172AB44E401 /* ForecastViewController.swift in Sources */,
 				68B74F751BD30F8A003092E4 /* LocationManager.swift in Sources */,
 			);

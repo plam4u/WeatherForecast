@@ -47,6 +47,7 @@ class ForecastViewController: UIViewController
 	}
 }
 
+// MARK: - UITableViewDataSource
 extension ForecastViewController : UITableViewDataSource
 {
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -62,6 +63,7 @@ extension ForecastViewController : UITableViewDataSource
 	}
 }
 
+// MARK: - UITableViewDelegate
 extension ForecastViewController : UITableViewDelegate
 {
 	

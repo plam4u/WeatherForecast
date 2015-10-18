@@ -16,3 +16,15 @@ func debugPrint(message: String, function: String = __FUNCTION__, file: String =
 		print("\(fileNameWithoutExtension!).\(function): \(message)")
 	#endif
 }
+
+extension Int {
+	func format(f: String) -> String {
+		return NSString(format: "%\(f)d", self) as String
+	}
+}
+
+extension Double {
+	func format(f: String) -> String {
+		return NSString(format: "%\(f)f", self) as String
+	}
+}

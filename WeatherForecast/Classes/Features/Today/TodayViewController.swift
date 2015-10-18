@@ -12,7 +12,17 @@ import Firebase
 
 class TodayViewController: UIViewController
 {
-
+	@IBOutlet weak var weatherImageView: UIImageView!
+	@IBOutlet weak var temperatureLabel: UILabel!
+	@IBOutlet weak var locationLabel: UILabel!
+	@IBOutlet weak var humidityLabel: UILabel!
+	@IBOutlet weak var volumeLabel: UILabel!
+	@IBOutlet weak var pressureLabel: UILabel!
+	@IBOutlet weak var windSpeedLabel: UILabel!
+	@IBOutlet weak var windDirectionLabel: UILabel!
+	
+	@IBOutlet weak var shareButton: UIButton!
+	
 	var currentWeather:CurrentWeather!
 	{
 		get
@@ -24,28 +34,18 @@ class TodayViewController: UIViewController
 		{
 			self.navigationItem.title = weather.city
 			LocationManager.sharedInstance.lastCity = weather.city
+			let rainVolumeFormat = ".1"
 			
 			self.locationLabel.text = "\(weather.city), \(weather.country)"
 			self.temperatureLabel.text = "\(weather.temperature) °C | \(weather.title)"
 			self.humidityLabel.text = "\(weather.humidity) %"
-			self.volumeLabel.text = "\(weather.rainVolume) mm"
+			self.volumeLabel.text = "\(weather.rainVolume.format(rainVolumeFormat)) mm"
 			self.pressureLabel.text = "\(weather.pressure) hPa"
 			self.windSpeedLabel.text = "\(weather.windSpeed) m/s"
 			self.windDirectionLabel.text = weather.windDirection
 			self.weatherImageView.image = UIImage(named: weather.icon)
 		}
 	}
-	
-	@IBOutlet weak var weatherImageView: UIImageView!
-	@IBOutlet weak var temperatureLabel: UILabel!
-	@IBOutlet weak var locationLabel: UILabel!
-	@IBOutlet weak var humidityLabel: UILabel!
-	@IBOutlet weak var volumeLabel: UILabel!
-	@IBOutlet weak var pressureLabel: UILabel!
-	@IBOutlet weak var windSpeedLabel: UILabel!
-	@IBOutlet weak var windDirectionLabel: UILabel!
-	
-	@IBOutlet weak var shareButton: UIButton!
 	
 	override func viewDidLoad()
 	{

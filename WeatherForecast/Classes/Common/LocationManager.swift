@@ -18,16 +18,15 @@ class LocationManager: NSObject
 	var lastLocation:CLLocationCoordinate2D!
 	var lastCity:String!
 	
-	var locationFirebaseRef:Firebase = Firebase(url:"https://popping-fire-2392.firebaseio.com/location")
+	var locationFirebaseRef:Firebase = Firebase(url:Constants.Firebase.location)
 	
 	private override init()
 	{
 		super.init()
 		
 		locationFirebaseRef.observeEventType(.Value)
-		{ (snapshot:FDataSnapshot!) -> Void in
-			
-			debugPrint("Firebase retrieved snapshot: \(snapshot.value)")
+		{
+			(snapshot:FDataSnapshot!) -> Void in
 			
 			if let lat = snapshot.value["lat"] as? Double,
 				   lon = snapshot.value["lon"] as? Double
@@ -53,6 +52,7 @@ class LocationManager: NSObject
 	}
 }
 
+// MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate
 {
 	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -61,7 +61,7 @@ extension LocationManager: CLLocationManagerDelegate
 		
 		let lastLocationDict = [
 			"lat": lastLocation.latitude,
-			"lon":lastLocation.longitude
+			"lon": lastLocation.longitude
 		]
 		locationFirebaseRef.setValue(lastLocationDict)
 		
@@ -71,6 +71,8 @@ extension LocationManager: CLLocationManagerDelegate
 			userInfo: ["location":lastLocationDict]
 		)
 		NSNotificationCenter.defaultCenter().postNotification(notification)
+		
+//		stopUpdatingLocation()
 	}
 	
 	func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
